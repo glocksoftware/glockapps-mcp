@@ -1,0 +1,10 @@
+{
+    "mcpServers": {
+        "glockapps": {
+            "url": "https://api.glockapps.com/mcp",
+            "headers": {
+                "Authorization": "Bearer YOUR_GLOCKAPPS_API_KEY"
+            }
+        }
+    }
+}
