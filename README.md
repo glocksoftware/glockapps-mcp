@@ -132,7 +132,7 @@ plan.
 ## Support
 
 [Open an issue](https://github.com/glocksoftware/glockapps-mcp/issues) or email
-info@glockapps.com.
+support@glock-apps.com.
 
 - Setup guide: https://glockapps.com/mcp-setup/
 - About the connector: https://glockapps.com/mcp/
