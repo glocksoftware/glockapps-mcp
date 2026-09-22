@@ -7,7 +7,7 @@
     "websiteUrl": "https://glockapps.com/mcp/",
     "icons": [
         {
-            "src": "https://a-us.storyblok.com/f/1020841/512x512/9ba02f4d93/cropped-favicon.png",
+            "src": "https://app.glockapps.com/glockapps-icon-512.png",
             "mimeType": "image/png",
             "sizes": ["512x512"]
         }
