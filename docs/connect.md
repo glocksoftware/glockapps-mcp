@@ -41,9 +41,16 @@ Run `/mcp` in the session and pick **Authenticate**; a browser window completes 
 
 Requires developer mode while the connector is not yet listed in the ChatGPT directory.
 
-1. **Settings → Connectors → Advanced → Developer mode**, then **Create**.
-2. Name it GlockApps, paste `https://api.glockapps.com/mcp`, transport **Streamable HTTP**.
-3. **Connect**, then paste your API key on the GlockApps page that opens.
+1. **Settings → Security and login → Developer mode**: turn it on. (Settings → Plugins → Developer
+   mode leads to the same switch.)
+2. Open **Plugins** in the sidebar, select **+** → **Create app**, then **Create MCP App**.
+3. Name it GlockApps. Under **Connection** keep **Server URL** and paste
+   `https://api.glockapps.com/mcp`.
+4. Leave **Authentication** on **OAuth**. ChatGPT discovers the rest by itself: **Advanced OAuth
+   settings** shows Dynamic Client Registration and the `inbox_placement:read` /
+   `inbox_placement:write` scopes, and nothing there needs changing.
+5. Tick **I understand and want to continue**, select **Create**, then paste your API key on the
+   GlockApps page that opens.
 
 ## Cursor
 

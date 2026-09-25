@@ -37,9 +37,10 @@ Then `/mcp` in the session, and authenticate in the browser window it opens.
 
 ### ChatGPT
 
-Settings → Connectors → **Add**. Paste the address, select **Connect**, and paste your API key on
-the GlockApps page that opens. Developer mode is required while the connector is not yet in the
-ChatGPT directory.
+Turn on developer mode (Settings → Security and login), then Plugins → **+** → **Create app** →
+**Create MCP App**. Paste the address, leave Authentication on **OAuth**, select **Create**, and
+paste your API key on the GlockApps page that opens. Developer mode is required while the
+connector is not yet in the ChatGPT directory.
 
 ### Cursor, Windsurf, Continue and other clients
 
