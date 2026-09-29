@@ -3,7 +3,7 @@
 Versions here match what the server reports in `initialize` and what is published to the MCP
 registry as `com.glockapps/mcp`.
 
-## 1.0.0 — unreleased
+## 1.0.0 — 2026-09-29
 
 First public release.
 
