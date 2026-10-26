@@ -65,7 +65,8 @@ Full per-client instructions: [`docs/connect.md`](docs/connect.md).
 The one thing to understand before you start: **this connector cannot send your email.** It gives
 you addresses to send to, and it reads what arrives.
 
-1. `list_projects` — resolves the project everything else needs.
+1. `list_projects` — finds the project everything else needs. With one project on the account,
+   that is the one; with several, your assistant asks which to use.
 2. `create_test` — **costs 1 credit.** Returns the seed addresses and a marker.
 3. **You send.** Send the campaign you want to test, from the platform you are testing, to every
    seed address, with the marker included — either the `X-API-Campaign-id` header or the
@@ -107,8 +108,9 @@ Fifteen tools, thirteen of them read-only. Full reference with parameters:
 - **Your key is not shared with the AI provider.** In the OAuth flow it is exchanged on a
   GlockApps page for a token scoped to this connector; it stays on your GlockApps account.
 - **Regenerating your key does not break an OAuth connection.** The connector records which
-  account it is linked to, not the key, and picks up the current one on each call. It *does* end
-  any connection using the static-key method above.
+  account it is linked to, not the key, and picks up the current one on each call; a call made at
+  the moment of regeneration asks to be retried. It *does* end, within a minute, any connection
+  using the static-key method above.
 - **Rate limits.** Test creation is capped per hour and per day on top of your credit balance.
   `get_balance` reports the effective number.
 
@@ -123,8 +125,8 @@ the test to get the credit back, start a fresh one, and follow its sending instr
 **Some results missing after an hour** — usually fine; slower providers take hours. Nothing at all
 within ten minutes of sending means the marker was missing.
 
-**"Shareable report links are unavailable"** — not part of every subscription. Your assistant can
-still read per-mailbox results directly.
+**"Shareable report links are not available"** — not part of every subscription. Your assistant
+can still read per-mailbox results directly.
 
 **Connecting fails with "API key not recognised"** — copy it again from
 [Account → API / MCP](https://app.glockapps.com/account/api); API access has to be enabled on your

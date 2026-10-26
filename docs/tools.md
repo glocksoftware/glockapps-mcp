@@ -5,7 +5,7 @@ writes are called out below, and only `create_test` spends anything.
 
 | Tool | What it does | Access |
 | --- | --- | --- |
-| `list_projects` | The projects on this account, with the defaultProjectId every other tool needs. | read |
+| `list_projects` | The projects on this account, which every other tool needs a projectId from. | read |
 | `get_balance` | How many more tests this account can run: its GlockApps credit balance and the connector's own hourly and daily caps, combined into one number. | read |
 | `list_providers` | List the mailbox providers in a project's seed list (Gmail, Outlook, Yahoo, corporate Exchange and so on), with how many seed mailboxes each has. | read |
 | `list_folders` | List the folders a test can be filed into within a project. | read |
@@ -30,7 +30,7 @@ result has arrived yet and the test did not fail.
 
 **Projects** · read · scope `inbox_placement:read`
 
-The projects on this account, with the defaultProjectId every other tool needs. Most accounts have one project and the GlockApps interface hides the selector, so the default is the answer unless the user names another.
+The projects on this account, which every other tool needs a projectId from. An account with one project gets a defaultProjectId; an account with several has no marked default, so the choice is the user's.
 
 No parameters.
 
@@ -50,7 +50,7 @@ List the mailbox providers in a project's seed list (Gmail, Outlook, Yahoo, corp
 
 | Parameter | Type | Required | Notes |
 | --- | --- | --- | --- |
-| `projectId` | `string` | yes | defaultProjectId from list_projects, unless the user named another project. |
+| `projectId` | `string` | yes | From list_projects: its defaultProjectId when the account has one project, otherwise the project the user chose. |
 | `detail` | `groups` \| `seeds` |  | 'groups' (default) for provider groups; 'seeds' to also list seed addresses. |
 
 ## `list_folders`
@@ -61,7 +61,7 @@ List the folders a test can be filed into within a project.
 
 | Parameter | Type | Required | Notes |
 | --- | --- | --- | --- |
-| `projectId` | `string` | yes | defaultProjectId from list_projects, unless the user named another project. |
+| `projectId` | `string` | yes | From list_projects: its defaultProjectId when the account has one project, otherwise the project the user chose. |
 | `folderType` | `manualTestFolder` \| `mailchimpTestFolder` |  | Folder kind. Defaults to manualTestFolder. |
 
 ## `create_test`
@@ -72,7 +72,7 @@ Start an inbox placement test. Costs 1 GlockApps credit. Returns the seed addres
 
 | Parameter | Type | Required | Notes |
 | --- | --- | --- | --- |
-| `projectId` | `string` | yes | defaultProjectId from list_projects, unless the user named another project. |
+| `projectId` | `string` | yes | From list_projects: its defaultProjectId when the account has one project, otherwise the project the user chose. |
 | `providerGroupIds` | `string[]` |  | Provider groups to test. Defaults to every group in the project seed list. |
 | `seedAccountGroupIds` | `string[]` |  | Seed account groups to include, e.g. a region-specific basket. |
 | `seedAccountIds` | `string[]` |  | Individual seed account ids. |
@@ -153,7 +153,7 @@ List recent tests in a project with their placement rates. Also the way to find 
 
 | Parameter | Type | Required | Notes |
 | --- | --- | --- | --- |
-| `projectId` | `string` | yes | defaultProjectId from list_projects, unless the user named another project. |
+| `projectId` | `string` | yes | From list_projects: its defaultProjectId when the account has one project, otherwise the project the user chose. |
 | `limit` | `number` |  | Rows per page, default 20, max 50. |
 | `page` | `number` |  | 1-based page number. |
 | `testType` | `ManualTest` \| `AutoTest` \| `IntegrationTest` |  | Filter by kind. Omit to list every test in the project. |

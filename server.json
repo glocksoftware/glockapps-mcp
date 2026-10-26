@@ -3,7 +3,7 @@
     "name": "com.glockapps/mcp",
     "title": "GlockApps — Inbox Placement Testing",
     "description": "Inbox placement tests across Gmail, Outlook, Yahoo and 30+ providers.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "websiteUrl": "https://glockapps.com/mcp/",
     "icons": [
         {
